@@ -1,0 +1,8 @@
+.nav {
+  background-color: aqua;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
