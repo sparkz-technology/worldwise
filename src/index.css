@@ -32,7 +32,9 @@ body {
   font-weight: 400;
   line-height: 1.6;
 }
-
+body ::-webkit-scrollbar {
+  display: none;
+}
 label {
   font-size: 1.6rem;
   font-weight: 600;
