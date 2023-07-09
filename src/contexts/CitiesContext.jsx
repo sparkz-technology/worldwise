@@ -35,6 +35,8 @@ function reducer(state, action) {
       };
     case "rejected":
       return { ...state, isLoading: false, error: action.payload };
+    default:
+      throw new Error("Invalid action");
   }
 }
 function CitiesProvider({ children }) {
