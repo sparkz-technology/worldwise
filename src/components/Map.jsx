@@ -45,7 +45,7 @@ function Map() {
       )}
       <MapContainer
         center={mapPosition}
-        zoom={10}
+        zoom={13}
         scrollWheelZoom={true}
         className={styles.map}
       >
@@ -71,7 +71,7 @@ function Map() {
 }
 function ChangeCenter({ position }) {
   const map = useMap();
-  map.setView(position);
+  map.setView(position, 10);
   return null;
 }
 function DetectClick() {

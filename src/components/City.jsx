@@ -19,7 +19,7 @@ function City() {
     function () {
       getCity(id);
     },
-    [id]
+    [id, getCity]
   );
   if (isLoading || !currentCity) return <Spinner />;
   const { cityName, emoji, date, notes } = currentCity;
