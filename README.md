@@ -20,7 +20,7 @@ Before running the WorldWise application, ensure you have the following dependen
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/your-username/worldwise.git
+git clone https://github.com/sparkz-technology/worldwise.git
 ```
 
 2. Change into the project directory:
