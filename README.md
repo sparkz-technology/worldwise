@@ -89,8 +89,5 @@ The WorldWise application uses the following open-source libraries:
 - [JSON Server](https://github.com/typicode/json-server)
 - [ESLint](https://eslint.org)
 
-## Contact
-
-For any inquiries or questions, please contact [support@worldwise.com](mailto:support@worldwise.com).
 
 Thank you for using WorldWise!
