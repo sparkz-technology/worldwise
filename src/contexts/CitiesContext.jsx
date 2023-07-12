@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+} from "react";
 import PropTypes from "prop-types";
 CitiesProvider.propTypes = {
   children: PropTypes.node.isRequired,
@@ -61,20 +68,23 @@ function CitiesProvider({ children }) {
     }
     fetchData();
   }, []);
-  async function getCity(id) {
-    if (Number(id) === currentCity.id) return;
-    dispatch({ type: "loading" });
-    try {
-      const response = await fetch(`${BASE_URL}/cities/${id}`);
-      const data = await response.json();
-      dispatch({ type: "city/loader", payload: data });
-    } catch {
-      dispatch({
-        type: "rejected",
-        payload: "There was an error fetching city ",
-      });
-    }
-  }
+  const getCity = useCallback(
+    async function getCity(id) {
+      if (Number(id) === currentCity.id) return;
+      dispatch({ type: "loading" });
+      try {
+        const response = await fetch(`${BASE_URL}/cities/${id}`);
+        const data = await response.json();
+        dispatch({ type: "city/loader", payload: data });
+      } catch {
+        dispatch({
+          type: "rejected",
+          payload: "There was an error fetching city ",
+        });
+      }
+    },
+    [currentCity.id]
+  );
   async function createCity(newCity) {
     dispatch({ type: "loading" });
     try {
@@ -107,20 +117,19 @@ function CitiesProvider({ children }) {
       });
     }
   }
+  const value = useMemo(() => {
+    return {
+      createCity,
+      cities,
+      isLoading,
+      error,
+      currentCity,
+      getCity,
+      deleteCity,
+    };
+  }, [cities, currentCity, error, getCity, isLoading]);
   return (
-    <CitiesContext.Provider
-      value={{
-        createCity,
-        cities,
-        isLoading,
-        error,
-        currentCity,
-        getCity,
-        deleteCity,
-      }}
-    >
-      {children}
-    </CitiesContext.Provider>
+    <CitiesContext.Provider value={value}>{children}</CitiesContext.Provider>
   );
 }
 function useCities() {

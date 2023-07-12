@@ -13,16 +13,16 @@
       "id": 1
     },
     {
-      "cityName": "Tirumakudal Narsipur",
+      "cityName": "Chennai",
       "country": "India",
       "emoji": "🇮🇳",
-      "date": "2023-07-10T15:38:38.697Z",
+      "date": "2023-07-12T13:36:13.019Z",
       "notes": "",
       "position": {
-        "lat": "12.189703804004086",
-        "lng": "76.99218750000001"
+        "lat": "13.066101276125417",
+        "lng": "80.28121948242189"
       },
-      "id": 2
+      "id": 4
     }
   ]
 }
