@@ -49,7 +49,7 @@ textarea {
   border: none;
   border-radius: 5px;
   background-color: var(--color-light--3);
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 input:focus {
